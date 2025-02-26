@@ -1,0 +1,74 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="https://www.example.com"
+    xmlns="https://www.example.com"
+    elementFormDefault="qualified">
+
+    <xs:element name="OrderInfo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="OrderId" type="xs:int"/>
+                <xs:element name="OrderDateTime" type="xs:dateTime"/>
+                <xs:element name="OrderItems">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="OrderItem" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Name" type="xs:string"/>
+                                        <xs:element name="Quantity" type="xs:int"/>
+                                        <xs:element name="UnitPrice">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:float">
+                                                        <xs:attribute name="Currency" type="xs:string" use="required"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="SalePrice">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:float">
+                                                        <xs:attribute name="Currency" type="xs:string" use="required"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="ProductID" type="xs:int" use="required"/>
+                                    <xs:attribute name="Sequence" type="xs:int" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Shipping">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Carrier" type="xs:string"/>
+                            <xs:element name="Fee">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:float">
+                                            <xs:attribute name="Currency" type="xs:string" use="required"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="TotalAmount">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:float">
+                                <xs:attribute name="Currency" type="xs:string" use="required"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
