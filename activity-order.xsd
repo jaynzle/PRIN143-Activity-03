@@ -11,7 +11,7 @@
                 <xs:element name="OrderItems">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="OrderItem" maxOccurs="unbounded" minOccurs="0">
+                            <xs:element name="OrderItem" maxOccurs="unbounded" minOccurs="1">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="Name" type="xs:string"/>
