@@ -6,7 +6,7 @@
     <xs:element name="OrderInfo">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="OrderId" type="xs:int"/>
+                <xs:element name="OrderId" type="xs:string"/>
                 <xs:element name="OrderDateTime" type="xs:dateTime"/>
                 <xs:element name="OrderItems">
                     <xs:complexType>
@@ -35,7 +35,7 @@
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>
-                                    <xs:attribute name="ProductID" type="xs:int" use="required"/>
+                                    <xs:attribute name="ProductID" type="xs:string" use="required"/>
                                     <xs:attribute name="Sequence" type="xs:int" use="required"/>
                                 </xs:complexType>
                             </xs:element>
